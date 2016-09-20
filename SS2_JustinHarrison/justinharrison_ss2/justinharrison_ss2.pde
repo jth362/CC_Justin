@@ -1,3 +1,15 @@
+//Justin Harrison Short Study #2
+//Title: Paint
+//Key Press: 
+//  R(increases red in color)
+//  r(decreases red in color)
+//  G(increases green in color)
+//  g(decreses green in color) 
+//  B (increases blue in color)
+//  b(decreases blue in color)
+//Mouse Press:
+//  Increases size of rectangle
+
 void setup(){
   size(1080, 800);
   background(255, 255, 255);
