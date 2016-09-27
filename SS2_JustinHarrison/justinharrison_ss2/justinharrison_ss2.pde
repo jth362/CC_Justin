@@ -11,7 +11,7 @@
 //  Increases size of rectangle
 
 void setup(){
-  size(1080, 800);
+  size(800, 800);
   background(255, 255, 255);
 }
 
