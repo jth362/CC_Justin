@@ -34,8 +34,8 @@ class Rings{
   //creates randomly generated colorful rings
   void randomize(){
     //randomly generates coordinates and diameter
-     x = int(random(0,1000));
-      y = int(random(0,1000));
+     x = int(random(0,400));
+      y = int(random(0,700));
      diameter = int(random(0,400));
      //creates rings in a nearly completely random pattern with random colors in blue & green tint
     for (int i = 0; i <4; i = i +1){
@@ -45,7 +45,7 @@ class Rings{
          diameter = diameter - 20;
          ringsX[i] = x;
          ringsY[i] = y;
-         ellipse(x + mouseX, y, diameter, diameter);
+         ellipse(x, y, diameter, diameter);
     }
     }
   }

@@ -17,11 +17,11 @@ void setup(){
 
 size(1020,780);
 //initializes
-rings1 = new Rings(200, 300, 500);
+rings1 = new Rings(700, 300, 500);
 rings2 = new Rings(600, 500, 500);
 rings3 = new Rings(800, 100, 500);
-rings4 = new Rings(100, 700, 500);
-rings5 = new Rings(400, 100, 500);
+rings4 = new Rings(900, 700, 500);
+rings5 = new Rings(1000, 100, 500);
 rings6 = new Rings(900, 900, 500);
 }
 
