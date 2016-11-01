@@ -26,12 +26,16 @@ rings6 = new Rings(900, 900, 500);
 }
 
 void draw() {
+  frameRate(10);
   //draws presimple overlapping circles
-  rings1.create();
+  /*rings1.create();
   rings2.create();
   rings3.create();
   rings4.create();
-  rings5.create(); 
+  */
+  rings5.create();
   //randomly generates colorful rings
-  rings6.randomize();
+  rings6.randomCircle();
+  rings6.randomRect();
+  rings6.switchSides();
 }

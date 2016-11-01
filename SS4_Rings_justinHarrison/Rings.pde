@@ -1,6 +1,5 @@
 //establishes 2 arrays that record x and y coordinates, respectively
-int[] ringsX = new int[6];
-int[] ringsY = new int[6];
+
 
 class Rings{
   //instance variables
@@ -23,8 +22,6 @@ class Rings{
          stroke(0,0,0);
          noFill();
          diameter = diameter - 20;
-         ringsX[i] = x;
-         ringsY[i] = y;
          ellipse(x, y, diameter, diameter);
      }
      }
@@ -32,23 +29,71 @@ class Rings{
   
   
   //creates randomly generated colorful rings
-  void randomize(){
+  void randomCircle(){
     //randomly generates coordinates and diameter
-     x = int(random(0,400));
-      y = int(random(0,700));
-     diameter = int(random(0,400));
+     x = int(random(0,500));
+      y = int(random(0,1000));
+     diameter = int(random(0,500));
      //creates rings in a nearly completely random pattern with random colors in blue & green tint
-    for (int i = 0; i <4; i = i +1){
-      while (diameter > 0){
+    for (int i = 0; i <100; i = i +1){
+      if (diameter > 0){
          stroke(0,0,0);
          fill(int(random(0,10)),int(random(0,100)),int(random(0,255)));
          diameter = diameter - 20;
-         ringsX[i] = x;
-         ringsY[i] = y;
          ellipse(x, y, diameter, diameter);
     }
     }
   }
   
+    void randomRect(){
+    //randomly generates coordinates and diameter
+     x = int(random(500,1000));
+      y = int(random(0,1000));
+     diameter = int(random(0,1500));
+     //creates rings in a nearly completely random pattern with random colors in blue & green tint
+    for (int i = 0; i <10; i = i +1){
+      while (diameter > 0){
+         stroke(0,0,0);
+         fill(int(random(0,10)),int(random(0,100)),int(random(0,255)));
+         diameter = diameter - 20;
+         rect(x, y, diameter, diameter);
+    }
+    }
+  }
+  
+  void switchSides(){
+    //randomCircle(){
+    //randomly generates coordinates and diameter
+     x = int(random(500,1000));
+      y = int(random(0,1000));
+     diameter = int(random(0,500));
+     //creates rings in a nearly completely random pattern with random colors in blue & green tint
+    for (int i = 0; i <100; i = i +1){
+      if (diameter > 0){
+         stroke(0,0,0);
+         fill(int(random(0,10)),int(random(0,100)),int(random(0,255)));
+         diameter = diameter - 20;
+         ellipse(x, y, diameter, diameter);
+
+    }
+  }
+  
+     //randomRect(){
+    //randomly generates coordinates and diameter
+     x = int(random(0,500));
+      y = int(random(0,1000));
+     diameter = int(random(0,1500));
+     //creates rings in a nearly completely random pattern with random colors in blue & green tint
+    for (int i = 0; i <10; i = i +1){
+      while (diameter > 0){
+         stroke(0,0,0);
+         fill(int(random(0,255)),int(random(0,10)),int(random(0,100)));
+         diameter = diameter - 20;
+         rect(x, y, diameter, diameter);
+    
+    }
+  }
+    
+  }
 }
   
