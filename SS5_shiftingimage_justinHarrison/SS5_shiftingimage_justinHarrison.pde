@@ -1,3 +1,9 @@
+//Shifting Images 
+//Justin Harrison
+//Three images with different tints shift over each other, with the tint changing randomly every time the user presses the mouse
+//Press mouse to shift transparency and tint
+
+
 //use of a video or sound library (or both, if you are feeling super ambitious).
 //user input, to create a reactive or interactive sketch.
 //as //comments: at the top of your sketch: title, your name, brief description of the work, any instructions or control details.
@@ -39,9 +45,7 @@ int a2 = 20;
 int a3 = 20;
 
 void draw(){
-textSize(120);
-textAlign(CENTER);
-text("CLICK ME", width/2, height/2);
+
 
 //creates three different images of webcam intake with different tints
 tint(r1, g1, b1, a1);
