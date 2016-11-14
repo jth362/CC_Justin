@@ -12,7 +12,7 @@ var republicans = [];
 var democrats = [];
  
 function preload() {
-  votes = loadTable("assets/electoral.csv");
+  votes = loadTable("assets/electoral.csv", "header");
 }
 
 function setup() {
