@@ -16,11 +16,7 @@ var randNum = 0;
 var randState;
  
 function preload() {
-<<<<<<< HEAD
   votes = loadTable("electoral.csv", "csv");
-=======
-  votes = loadTable("assets/electoral.csv", "header");
->>>>>>> origin/master
 }
 
 function setup() {
