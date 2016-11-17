@@ -1,8 +1,8 @@
+//variables for CSV data
 var votes;
 var rowCount;
-var rand1;
-var rand2;
 
+//variables for arrays of votes
 var demNum = 0;
 var repNum = 0;
 
@@ -11,12 +11,14 @@ var totalVotes = 0;
 var republicans = [];
 var democrats = [];
 
+//random variables
 var randNum = 0;
-
+var rand1;
+var rand2;
 var randState;
 
-var voteCount;
  
+//loads CSV
 function preload() {
   votes = loadTable("electoral.csv", "csv");
 }
@@ -27,6 +29,7 @@ background(255);
 
 rowCount = votes.getRowCount();
 
+//take data from CSV, move to array of democrat votes or republican votes
 for (var i = 0; i< rowCount; i++){
   var electoralVotes = votes.getString(i,1);
   if(votes.getNum(i, 2) > votes.getNum(i, 3)){
@@ -42,6 +45,7 @@ for (var i = 0; i< rowCount; i++){
   }
 }
 
+//buttons for different displays
   button1 = createButton('Republican Votes Only');
   button1.position(100, 640);
   button1.mousePressed(republicanOnly);
@@ -67,6 +71,7 @@ for (var i = 0; i< rowCount; i++){
   button6.mousePressed(explainData);
 }
 
+//when button is pressed, flashes a message explaining data
 function explainData(){
   fill(0);
   textSize(19);
@@ -74,12 +79,13 @@ function explainData(){
   button6.mousePressed(removeModal);
 }
 
+//removes explanation when button is pressed again
 function removeModal(){
   background(255);
   button6.mousePressed(explainData);
 }
 
-
+//counts the number of votes a democratic state has (ex: cali has 55) and returns that number
 function countDemVotes(state){
   totalVotes = 0;
   var demLength = democrats.length;
@@ -91,6 +97,7 @@ function countDemVotes(state){
   return totalVotes;
 }
 
+//counts the number of votes a republican state has (ex: cali has 55) and returns that number
 function countRepVotes(state){
   totalVotes = 0;
   var repLength = republicans.length;
@@ -102,6 +109,7 @@ function countRepVotes(state){
   return totalVotes;
 }
 
+//displays all of the votes in a random organization
 function randomDisplay() {
 background(250);
   
@@ -110,6 +118,7 @@ for(var i = 0; i < democrats.length; i++){
  var rand2 = random(50,600);
  fill(2,27,189);
  voteCount = countDemVotes(democrats[i]);
+ //changes size of vote depending on total number of votes
  if(voteCount > 50){
  textSize(35);
  text(democrats[i], rand1 , rand2);
@@ -136,6 +145,7 @@ for(var j = 0; j < republicans.length; j++){
  var rand4 = random(50,600);
  fill(254,1,3);
  voteCount = countRepVotes(republicans[j]);
+  //changes size of vote depending on total number of votes
  if(voteCount > 50){
  textSize(35);
  text(republicans[j], rand3 , rand4);
@@ -158,6 +168,7 @@ for(var j = 0; j < republicans.length; j++){
 }
 }
 
+//displays all of the republican votes in a random organization
 function republicanOnly() {
 background(250);
   
@@ -166,6 +177,7 @@ for(var j = 0; j < republicans.length; j++){
  var rand4 = random(50,600);
  fill(254,1,3);
  voteCount = countRepVotes(republicans[j]);
+  //changes size of vote depending on total number of votes
  if(voteCount > 50){
  textSize(35);
  text(republicans[j], rand3 , rand4);
@@ -188,6 +200,7 @@ for(var j = 0; j < republicans.length; j++){
 }
 }
 
+//displays all of the democrat votes in a random organization
 function democratOnly() {
 background(250);
 fill(2,27,189);
@@ -195,6 +208,7 @@ for(var i = 0; i < democrats.length; i++){
   var rand1 = random(50,1150);
 var rand2 = random(50,600);
  voteCount = countDemVotes(democrats[i]);
+  //changes size of vote depending on total number of votes
  if(voteCount > 50){
  textSize(35);
  text(democrats[i], rand1 , rand2);
@@ -218,6 +232,7 @@ var rand2 = random(50,600);
   }
 }
 
+//displays the votes with democrats on the left and republicans on the right
 function leftRight() {
 background(250);
   
@@ -226,6 +241,7 @@ for(var i = 0; i < democrats.length; i++){
  var rand2 = random(50,600);
  fill(2,27,189);
  voteCount = countDemVotes(democrats[i]);
+  //changes size of vote depending on total number of votes
  if(voteCount > 50){
  textSize(35);
  text(democrats[i], rand1 , rand2);
@@ -252,6 +268,7 @@ for(var j = 0; j < republicans.length; j++){
  var rand4 = random(50,600);
  fill(254,1,3);
  voteCount = countRepVotes(republicans[j]);
+  //changes size of vote depending on total number of votes
  if(voteCount > 50){
  textSize(35);
  text(republicans[j], rand3 , rand4);
@@ -274,6 +291,7 @@ for(var j = 0; j < republicans.length; j++){
 }
 }
 
+//chooses a random state, displays their votes alone somewhere on canvas
 function randomState() {
 background(250);
  var randNum = int(random(0,2));
@@ -286,6 +304,7 @@ background(250);
       var rand2 = random(50,600);
       fill(2,27,189);
       voteCount = countDemVotes(democrats[i]);
+       //changes size of vote depending on total number of votes
       if(voteCount > 50){
       textSize(35);
       text(democrats[i], rand1 , rand2);
@@ -317,6 +336,7 @@ background(250);
         var rand4 = random(50,600);
         fill(254,1,3);
         voteCount = countRepVotes(republicans[j]);
+         //changes size of vote depending on total number of votes
        if(voteCount > 50){
        textSize(35);
         text(republicans[j], rand3 , rand4);
