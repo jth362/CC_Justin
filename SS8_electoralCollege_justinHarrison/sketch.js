@@ -14,6 +14,8 @@ var democrats = [];
 var randNum = 0;
 
 var randState;
+
+var voteCount;
  
 function preload() {
   votes = loadTable("electoral.csv", "csv");
@@ -40,44 +42,119 @@ for (var i = 0; i< rowCount; i++){
   }
 }
 
-  button = createButton('Republican Votes Only');
-  button.position(50, 640);
-  button.mousePressed(republicanOnly);
+  button1 = createButton('Republican Votes Only');
+  button1.position(100, 640);
+  button1.mousePressed(republicanOnly);
   
-  button = createButton('Democrat Votes Only');
-  button.position(315, 640);
-  button.mousePressed(democratOnly);
+  button2 = createButton('Democrat Votes Only');
+  button2.position(350, 640);
+  button2.mousePressed(democratOnly);
   
-  button = createButton('Left-Right Split');
-  button.position(580, 640);
-  button.mousePressed(leftRight);
+  button3 = createButton('Left-Right Split');
+  button3.position(600, 640);
+  button3.mousePressed(leftRight);
   
-  button = createButton('Random Organization');
-  button.position(800, 640);
-  button.mousePressed(randomDisplay);
+  button4 = createButton('Random Organization');
+  button4.position(850, 640);
+  button4.mousePressed(randomDisplay);
   
-  button = createButton('Single State');
-  button.position(1000, 640);
-  button.mousePressed(randomState);
+  button5 = createButton('Single State');
+  button5.position(1050, 640);
+  button5.mousePressed(randomState);
+  
+  button6 = createButton('?');
+  button6.position(0, 0);
+  button6.mousePressed(explainData);
+}
+
+function explainData(){
+  fill(0);
+  textSize(19);
+  text('Data represented is the electoral votes alloted to each state, colored based on party leaning for the 2016 election. ', 0, 30);
+  button6.mousePressed(removeModal);
+}
+
+function removeModal(){
+  background(255);
+  button6.mousePressed(explainData);
+}
+
+
+function countDemVotes(state){
+  totalVotes = 0;
+  var demLength = democrats.length;
+   for(var j = 0; j < demLength; j++){
+    if(democrats[j] == state){
+      totalVotes = totalVotes + 1;
+    }
+  }
+  return totalVotes;
+}
+
+function countRepVotes(state){
+  totalVotes = 0;
+  var repLength = republicans.length;
+   for(var j = 0; j < repLength; j++){
+    if(republicans[j] == state){
+      totalVotes = totalVotes + 1;
+    }
+  }
+  return totalVotes;
 }
 
 function randomDisplay() {
 background(250);
   
 for(var i = 0; i < democrats.length; i++){
- var rand1 = random(50,1150);
+ var rand1 = random(0,1125);
  var rand2 = random(50,600);
  fill(2,27,189);
+ voteCount = countDemVotes(democrats[i]);
+ if(voteCount > 50){
+ textSize(35);
  text(democrats[i], rand1 , rand2);
- totalVotes = totalVotes + 1;
+  }else if(voteCount > 40) {
+    textSize(30);
+    text(democrats[i], rand1 , rand2);
+  }else if(voteCount > 30){
+    textSize(25);
+    text(democrats[i], rand1 , rand2);
+  }else if(voteCount > 20){
+    textSize(20);
+    text(democrats[i], rand1 , rand2);
+  }else if(voteCount > 10){
+    textSize(15);
+    text(democrats[i], rand1 , rand2);
+  }else{
+    textSize(10);
+    text(democrats[i], rand1 , rand2);
   }
+}
   
 for(var j = 0; j < republicans.length; j++){
- var rand3 = random(50,1150);
+ var rand3 = random(0,1125);
  var rand4 = random(50,600);
  fill(254,1,3);
+ voteCount = countRepVotes(republicans[j]);
+ if(voteCount > 50){
+ textSize(35);
  text(republicans[j], rand3 , rand4);
- totalVotes = totalVotes + 1;
+  }else if(voteCount > 40) {
+    textSize(30);
+    text(republicans[j], rand3 , rand4);
+  }else if(voteCount > 30){
+    textSize(25);
+    text(republicans[j], rand3 , rand4);
+  }else if(voteCount > 20){
+    textSize(20);
+    text(republicans[j], rand3 , rand4);
+  }else if(voteCount > 10){
+    textSize(15);
+    text(republicans[j], rand3 , rand4);
+  }else{
+    textSize(10);
+    text(republicans[j], rand3 , rand4);
+  }
 }
 }
 
@@ -88,20 +165,56 @@ for(var j = 0; j < republicans.length; j++){
  var rand3 = random(50,1150);
  var rand4 = random(50,600);
  fill(254,1,3);
+ voteCount = countRepVotes(republicans[j]);
+ if(voteCount > 50){
+ textSize(35);
  text(republicans[j], rand3 , rand4);
- totalVotes = totalVotes + 1;
+  }else if(voteCount > 40) {
+    textSize(30);
+    text(republicans[j], rand3 , rand4);
+  }else if(voteCount > 30){
+    textSize(25);
+    text(republicans[j], rand3 , rand4);
+  }else if(voteCount > 20){
+    textSize(20);
+    text(republicans[j], rand3 , rand4);
+  }else if(voteCount > 10){
+    textSize(15);
+    text(republicans[j], rand3 , rand4);
+  }else{
+    textSize(10);
+    text(republicans[j], rand3 , rand4);
+  }
 }
 }
 
 function democratOnly() {
 background(250);
-  
+fill(2,27,189);
 for(var i = 0; i < democrats.length; i++){
- var rand1 = random(50,1150);
- var rand2 = random(50,600);
- fill(2,27,189);
+  var rand1 = random(50,1150);
+var rand2 = random(50,600);
+ voteCount = countDemVotes(democrats[i]);
+ if(voteCount > 50){
+ textSize(35);
  text(democrats[i], rand1 , rand2);
- totalVotes = totalVotes + 1;
+  }else if(voteCount > 40) {
+    textSize(30);
+    text(democrats[i], rand1 , rand2);
+  }else if(voteCount > 30){
+    textSize(25);
+    text(democrats[i], rand1 , rand2);
+  }else if(voteCount > 20){
+    textSize(20);
+    text(democrats[i], rand1 , rand2);
+  }else if(voteCount > 10){
+    textSize(15);
+    text(democrats[i], rand1 , rand2);
+  }else{
+    textSize(10);
+    text(democrats[i], rand1 , rand2);
+  }
+  
   }
 }
 
@@ -109,19 +222,55 @@ function leftRight() {
 background(250);
   
 for(var i = 0; i < democrats.length; i++){
- var rand1 = random(50,550);
+ var rand1 = random(0,575);
  var rand2 = random(50,600);
  fill(2,27,189);
+ voteCount = countDemVotes(democrats[i]);
+ if(voteCount > 50){
+ textSize(35);
  text(democrats[i], rand1 , rand2);
- totalVotes = totalVotes + 1;
+  }else if(voteCount > 40) {
+    textSize(30);
+    text(democrats[i], rand1 , rand2);
+  }else if(voteCount > 30){
+    textSize(25);
+    text(democrats[i], rand1 , rand2);
+  }else if(voteCount > 20){
+    textSize(20);
+    text(democrats[i], rand1 , rand2);
+  }else if(voteCount > 10){
+    textSize(15);
+    text(democrats[i], rand1 , rand2);
+  }else{
+    textSize(10);
+    text(democrats[i], rand1 , rand2);
+  }
   }
   
 for(var j = 0; j < republicans.length; j++){
- var rand3 = random(550,1150);
+ var rand3 = random(575,1200);
  var rand4 = random(50,600);
  fill(254,1,3);
+ voteCount = countRepVotes(republicans[j]);
+ if(voteCount > 50){
+ textSize(35);
  text(republicans[j], rand3 , rand4);
- totalVotes = totalVotes + 1;
+  }else if(voteCount > 40) {
+    textSize(30);
+    text(republicans[j], rand3 , rand4);
+  }else if(voteCount > 30){
+    textSize(25);
+    text(republicans[j], rand3 , rand4);
+  }else if(voteCount > 20){
+    textSize(20);
+    text(republicans[j], rand3 , rand4);
+  }else if(voteCount > 10){
+    textSize(15);
+    text(republicans[j], rand3 , rand4);
+  }else{
+    textSize(10);
+    text(republicans[j], rand3 , rand4);
+  }
 }
 }
 
@@ -136,7 +285,26 @@ background(250);
       var rand1 = random(50,550);
       var rand2 = random(50,600);
       fill(2,27,189);
+      voteCount = countDemVotes(democrats[i]);
+      if(voteCount > 50){
+      textSize(35);
       text(democrats[i], rand1 , rand2);
+     }else if(voteCount > 40) {
+     textSize(30);
+     text(democrats[i], rand1 , rand2);
+     }else if(voteCount > 30){
+     textSize(25);
+     text(democrats[i], rand1 , rand2);
+     }else if(voteCount > 20){
+      textSize(20);
+     text(democrats[i], rand1 , rand2);
+     }else if(voteCount > 10){
+     textSize(15);
+     text(democrats[i], rand1 , rand2);
+     }else{
+     textSize(10);
+     text(democrats[i], rand1 , rand2);
+  }
     }
   }
  }
@@ -148,7 +316,26 @@ background(250);
         var rand3 = random(550,1150);
         var rand4 = random(50,600);
         fill(254,1,3);
+        voteCount = countRepVotes(republicans[j]);
+       if(voteCount > 50){
+       textSize(35);
         text(republicans[j], rand3 , rand4);
+          }else if(voteCount > 40) {
+        textSize(30);
+        text(republicans[j], rand3 , rand4);
+       }else if(voteCount > 30){
+       textSize(25);
+       text(republicans[j], rand3 , rand4);
+      }else if(voteCount > 20){
+      textSize(20);
+       text(republicans[j], rand3 , rand4);
+       }else if(voteCount > 10){
+      textSize(15);
+     text(republicans[j], rand3 , rand4);
+     }else{
+      textSize(10);
+      text(republicans[j], rand3 , rand4);
+  }
      }
    }
 }
