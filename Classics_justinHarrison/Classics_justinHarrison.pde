@@ -1,5 +1,6 @@
-//establishes 2 arrays that record x and y coordinates, respectively
+//Classics by Justin & Monjur
 
+//establishes 2 arrays that record x and y coordinates, respectively
 
 class Rings{
   //instance variables
@@ -13,20 +14,6 @@ class Rings{
     y = tempY;
     diameter = tempDiameter;
   }
-  
-  //creates overlapping circles 
-  void create(){  
-    while (diameter > 0){
-      // creates one circle, makes the diameter smaller, creates another
-     for (int i = 0; i <6; i = i +1){
-         stroke(0,0,0);
-         noFill();
-         diameter = diameter - 20;
-         ellipse(x, y, diameter, diameter);
-     }
-     }
-  }
-  
   
   //creates randomly generated colorful rings
   void randomCircle(){
@@ -48,7 +35,7 @@ class Rings{
     void randomRect(){
     //randomly generates coordinates and diameter
      x = int(random(500,1000));
-      y = int(random(0,1000));
+     y = int(random(0,1000));
      diameter = int(random(0,1500));
      //creates rings in a nearly completely random pattern with random colors in blue & green tint
     for (int i = 0; i <10; i = i +1){
@@ -63,7 +50,6 @@ class Rings{
 
 
   void switchSides(){
-    //randomCircle(){
     //randomly generates coordinates and diameter
      x = int(random(500,1000));
       y = int(random(0,1000));
@@ -77,9 +63,8 @@ class Rings{
          ellipse(x, y, diameter, diameter);
 
     }
-  }
+    }
   
-     //randomRect(){
     //randomly generates coordinates and diameter
      x = int(random(0,500));
       y = int(random(0,1000));
@@ -96,46 +81,28 @@ class Rings{
   }
     
   }
+  
+  void start(){
+      rings6.randomCircle();
+      rings6.randomRect();
+  }
 }
-//Rings, Justin Harrison
-
-//an original class with at least two methods
-//an array of objects
-//annotations as //comments in the sketch, explaining what each part does
 
 
 //creates each Ring variable
-Rings rings1;
-Rings rings2;
-Rings rings3;
-Rings rings4;
-Rings rings5;
 Rings rings6;
 
 void setup(){
-
 size(1020,780);
+background(255);
+
 //initializes
-rings1 = new Rings(700, 300, 500);
-rings2 = new Rings(600, 500, 500);
-rings3 = new Rings(800, 100, 500);
-rings4 = new Rings(900, 700, 500);
-rings5 = new Rings(1000, 100, 500);
 rings6 = new Rings(900, 900, 500);
 }
 
 void draw() {
   frameRate(10);
-  //draws presimple overlapping circles
-  /*rings1.create();
-  rings2.create();
-  rings3.create();
-  rings4.create();
-  */
-  rings5.create();
-  //randomly generates colorful rings
-  rings6.randomCircle();
-  rings6.randomRect();
+  
   
   if(mousePressed == true){
     background(255);

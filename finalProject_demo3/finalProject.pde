@@ -15,12 +15,15 @@ int state = 1;
 PImage easel1;
 PImage easel2;
 PImage portrait;
+PImage background;
 
 void setup(){
  size(1080, 700);
   easel2 = loadImage("easel2.png");
+  background = loadImage("galleryBG.jpg");
   video = new Capture(this, 320, 240);
   opencv = new OpenCV(this, 640, 480);
+   image(background, 0, 0);
   opencv.loadCascade(OpenCV.CASCADE_FRONTALFACE); 
   video.start();
   background(255);
@@ -34,7 +37,6 @@ void captureEvent(Capture video){
 
 
 void draw(){
- 
   if(state == 1){
     textSize(32);
     fill(0);
@@ -66,7 +68,7 @@ void draw(){
     int x1 = x + 375;
     int y1 = y + 250;
 
-    fill(pix, 126);
+    fill(pix - 100, 126);
     
     if(counter > 1500){
       w1 = 50;
@@ -84,6 +86,7 @@ void draw(){
       w1 = 5;
       w2 = 5;
     ellipse(x1, y1, w1, w2);
+    
     }
     image(easel2, 200,75, 700,600);
     counter = counter - 1;

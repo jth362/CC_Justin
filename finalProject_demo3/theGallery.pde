@@ -1,0 +1,1 @@
+PImage[] paintings = new PImage[10];
