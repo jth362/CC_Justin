@@ -9,7 +9,7 @@ import java.awt.*;
 //painting variables
 Capture video;
 OpenCV opencv;
-int counter = 2000;
+int counter;
 int paintStyle, width1, width2, x, y, colLoc, rowLoc, colorSwitch;
 color c;
 int videoScale = 10;
@@ -20,7 +20,7 @@ PImage marble, easel, frame, arrow1, arrow2;
 int state = 1;
 Table filenames;
 PFont font;
-int count = 0;
+int count;
 
 //image variables
 PImage portrait1, portrait2, portrait3, portrait4, portrait5, portrait6, portrait7, portrait8, portrait9, portrait10;
@@ -91,6 +91,18 @@ void draw(){
 
   //state 1 provides an introduction to the experience
    if(state == 1){
+    arrayPos = 0;
+    portraits[1] = loadImage("portrait" + (portraitCount - 1) + ".jpg");
+    portraits[2] = loadImage("portrait" + (portraitCount - 2) + ".jpg");
+    portraits[3] = loadImage("portrait" + (portraitCount - 3) + ".jpg");
+    portraits[4] = loadImage("portrait" + (portraitCount - 4) + ".jpg");
+    portraits[5] = loadImage("portrait" + (portraitCount - 5) + ".jpg");
+    portraits[6] = loadImage("portrait" + (portraitCount - 6) + ".jpg");
+    portraits[7] = loadImage("portrait" + (portraitCount - 7) + ".jpg");
+    portraits[8] = loadImage("portrait" + (portraitCount - 8) + ".jpg");
+    portraits[9] = loadImage("portrait" + (portraitCount - 9) + ".jpg");
+    counter = 1000;
+    count = 0;
     image(marble, 0, 0);
     textAlign(CENTER);
     textSize(40);
@@ -147,15 +159,15 @@ void draw(){
 
       fill(c * colorSwitch);
     
-      if(counter > 1500){
+      if(counter > 750){
         width1 = 50;
         width2 = 50;
         ellipse(x, y, width1, width2);
-      }else if( counter > 1000){
+      }else if( counter > 500){
         width1 = 25;
         width2 = 25;
         ellipse(x, y, width1, width2);
-      }else if(counter > 500){
+      }else if(counter > 250){
         width1 = 15;
         width2 = 15;
         ellipse(x, y, width1, width2);
@@ -182,15 +194,15 @@ void draw(){
 
       fill(c * colorSwitch);
     
-      if(counter > 1500){
+      if(counter > 750){
         width1 = 50;
         width2 = 50;
        rect(x, y, width1, width2);
-      }else if( counter > 1000){
+      }else if( counter > 500){
         width1 = 25;
         width2 = 25;
         rect(x, y, width1, width2);
-      }else if(counter > 500){
+      }else if(counter > 250){
         width1 = 15;
         width2 = 15;
         rect(x, y, width1, width2);
@@ -217,15 +229,15 @@ void draw(){
 
       fill(c * colorSwitch);
     
-      if(counter > 1500){
+      if(counter > 750){
         width1 = 50;
         width2 = 50;
        rect(x, y, width1, width2);
-      }else if( counter > 1000){
+      }else if( counter > 500){
         width1 = 50;
         width2 = 5;
         rect(x, y, width1, width2);
-      }else if(counter > 500){
+      }else if(counter > 250){
         width1 = 15;
         width2 = 5;
         rect(x, y, width1, width2);
@@ -240,7 +252,7 @@ void draw(){
         state = state + 1;
       }
     }else if(paintStyle ==4){
-      if(counter > 1500){
+      if(counter > 750){
          colLoc = int(random(0, cols));
         rowLoc = int(random(0, rows));
           x = colLoc * videoScale + 375;
@@ -250,7 +262,7 @@ void draw(){
           noStroke();
           ellipse(x, y, videoScale+30, videoScale+30);
           counter--;
-      }else if(counter > 750){
+      }else if(counter > 500){
           colLoc = int(random(0, cols/2));
         rowLoc = int(random(rows/5, (rows/5)*3));
           x = colLoc * videoScale + 375;
@@ -315,6 +327,7 @@ void draw(){
      image(frame, 275, -10, 550, 650);
      image(arrow1, 900, 300, 150, 100);
      image(arrow2, 50, 300, 150, 100);
+     paintStyle = int(random(1, 5));
     }
      
     } 
