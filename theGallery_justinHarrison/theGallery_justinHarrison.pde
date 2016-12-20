@@ -88,9 +88,9 @@ void draw(){
   
   //loads pixel
   video.loadPixels();
-  
+
   //state 1 provides an introduction to the experience
-  if(state == 1){
+   if(state == 1){
     image(marble, 0, 0);
     textAlign(CENTER);
     textSize(40);
@@ -310,15 +310,14 @@ void draw(){
      rect(400, 640, 300, 50);
      fill(255);
      textSize(40);
-     text("Restart", 530, 675);
+     text("Restart", 540, 675);
      image(portraits[arrayPos].get(360, 120, 350, 500), 330, 40, 435, 575);
      image(frame, 275, -10, 550, 650);
      image(arrow1, 900, 300, 150, 100);
      image(arrow2, 50, 300, 150, 100);
-     
-     
     }
-    }  
+     
+    } 
 
 void mousePressed(){
   
@@ -333,9 +332,8 @@ void mousePressed(){
   if (state == 2){
     if( mouseX > 470 && mouseX <  620){
     if(mouseY > 440 && mouseY < 540){
-        state = state;
+       state = state;
         count = count + 1;
-        println(count);
         if (count == 2){
           state = state + 1;
         }
@@ -377,6 +375,7 @@ void mousePressed(){
     if( mouseX > 400 && mouseX <  700){
     if(mouseY > 640 && mouseY < 690){
        state = 1;
+       
     }
     }
     
