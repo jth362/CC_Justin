@@ -2,6 +2,8 @@
 
 //establishes 2 arrays that record x and y coordinates, respectively
 
+//hold down mouse to use
+
 class Rings{
   //instance variables
   int x;
